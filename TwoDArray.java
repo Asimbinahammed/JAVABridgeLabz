@@ -28,7 +28,7 @@ public class TwoDArray {
 	    for (int i = 0; i < m; i++) {
 	    	for(int j=0; j<n; j++) {
 	    		
-	    		System.out.println( Array[i][j]);  
+	    		System.out.print( Array[i][j]+ " ");  
 
 	    	}
 	    	System.out.println();
