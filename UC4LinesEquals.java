@@ -2,7 +2,7 @@ package bridgelabz;
 
 import java.util.Scanner;
 
-public class UC3ComapreTOMethod {
+public class UC4LinesEquals {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -31,16 +31,17 @@ public class UC3ComapreTOMethod {
 	    System.out.print("Enter y2:");
 	    int q2 = sc.nextInt();
 	    
-	    UC3ComapreTOMethod obj=new UC3ComapreTOMethod();
+	    UC4LinesEquals obj=new UC4LinesEquals();
 	    Double length1=obj.calcu(x1,x2,y1,y2);
 	    Double length2=obj.calcu(p1,p2,q1,q2);
-	    if (length1.compareTo(length2)>0) {
-        	System.out.println("1st line is greater");        	
+	    
+	    if (length1.equals(length2)) {
+	    	System.out.println("Equal lines");
 	    }
 	    else if (length1.compareTo(length2)<0) {
         	System.out.println("2nd line is greater");        
 	     }else {
-	        	System.out.println("Equal lines");
+	    	 System.out.println("1st line is greater");
 	        }
 	    	
 	    }
@@ -51,6 +52,4 @@ public class UC3ComapreTOMethod {
 		System.out.println("Length is : "+length);
 		return length;
 	}
-
 }
-

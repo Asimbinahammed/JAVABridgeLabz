@@ -1,35 +1,46 @@
 package bridgelabz;
-import java.util.Scanner;
-
 
 public class UC7RefactorCode {
-
+	public static final int IS_FULL_TIME=2;
+	public static final  int IS_PART_TIME =1;
+	public static final  int EMP_RATE_PER_HOUR =8;
+	public static final  int Working_Days =20;
+	public static final  int Working_Hours =100;
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-	    System.out.print("Enter x1:");
-	    int x1 = sc.nextInt();
-
-		Scanner scd = new Scanner(System.in);
-	    System.out.print("Enter x1:");
-	    int x2 = scd.nextInt();
-
-		Scanner scs = new Scanner(System.in);
-	    System.out.print("Enter x1:");
-	    int y1 = scs.nextInt();
-
-		Scanner sca = new Scanner(System.in);
-	    System.out.print("Enter x1:");
-	    int y2 = sca.nextInt();
-	    
-	    UC7RefactorCode obj=new UC7RefactorCode();
-	    obj.calcu(x1,x2,y1,y2);
+		UC7RefactorCode obj=new UC7RefactorCode();
+		int empHours=obj.empCalc();
+		obj.wageCalc(empHours);
 	}
-	
-	public void calcu(int x1,int x2,int y1,int y2) {
-		double length=(Math.pow((x2-x1), 2))+(Math.pow((y2-y1), 2));
-		System.out.println("Length is : "+length);
+		
+		public int empCalc() {
+			int empHours=0;
+			int totalEmpHrs=0;
+			int totalWorkingDays=0;
+			while (totalEmpHrs <= Working_Hours && totalWorkingDays < Working_Days) {
+				totalWorkingDays++;
+				int empCheck =(int) Math.floor(Math.random()*10)%3;
+		switch (empCheck) {
+		case IS_FULL_TIME:
+			 empHours=8;
+			break;
+		
+		case IS_PART_TIME:
+			 empHours=4;
+			break;
+			
+			default:
+				empHours=0;
+				}
+		totalEmpHrs+=empHours;
+		System.out.println("Day#: " + totalWorkingDays + "Emp hr: "+empHours);
+			}
+			return totalEmpHrs;
 		
 	}
-
+		public void wageCalc(int totalEmpHrs) {
+			int wage=0;
+			wage=totalEmpHrs*EMP_RATE_PER_HOUR;
+			System.out.println("Emp wage :" +wage);
+			}
 }
